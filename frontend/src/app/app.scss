@@ -6,7 +6,9 @@
   h1 { margin: 0 0 16px; }
   
   .add-form {
-    display: flex; gap: 8px; margin-bottom: 16px;
+    display: flex;
+    gap: 8px; 
+    margin-bottom: 16px;
   
     input {
       flex: 1; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
@@ -18,19 +20,66 @@
     button[disabled] { opacity: .6; cursor: not-allowed; }
   }
   
-  .error { color: #b00020; margin-bottom: 12px; }
-  .loading { opacity: .8; margin-bottom: 12px; }
+  .error { 
+    color: #b00020; 
+    margin-bottom: 12px; 
+}
+  .loading { 
+    opacity: .8;
+     margin-bottom: 12px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
   
   .todo-list {
-    list-style: none; padding: 0; margin: 0;
+    list-style: none;
+     padding: 0; 
+     margin: 0;
   
     li {
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex; 
+      justify-content: space-between; 
+      gap: 10px;
+      align-items: center;
       border: 1px solid #eee; border-radius: 6px; padding: 10px 12px; margin-bottom: 8px;
   
-      .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 80%; }
+      .title {
+         overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex:1; max-width: 80%; }
       .delete { background: transparent; color: #d00; border: 1px solid #f3cccc; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+      &.completed {
+        text-decoration: line-through;
+        opacity: .7;
+        color: #666;
+      }
     }
+
+
+.toggle .round {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+   cursor: pointer;
+  }
+
+  .toggle .round:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #1a73e8;
+  }
     .empty { text-align: center; color: #666; padding: 16px; border: 1px dashed #ddd; border-radius: 6px; }
   }
   

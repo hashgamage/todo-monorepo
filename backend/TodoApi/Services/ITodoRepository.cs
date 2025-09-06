@@ -11,5 +11,6 @@ namespace TodoApi.Services
         IEnumerable<TodoItem> GetAll();
         TodoItem Add(string Title);
         bool Delete(int id);
+        bool SetDone(int id, bool IsDone);
     }
 }

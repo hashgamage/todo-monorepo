@@ -74,5 +74,28 @@ export class App {
     });
   }
 
+  toggleDone(item: TodoItem) {
+    const target = !item.isDone;
+    this.svc.setDone(item.id, target).subscribe({
+      next: () => {
+        const current = (this.items() ?? []).map(x => x.id === item.id ? { ...x, isDone: target } : x);
+        this.items.set(this.sort(current)); // move completed items to bottom
+      },
+     error: () => { this.error.set('Failed to update item.'); }
+   });
+  }
+  
+  private sort(list: TodoItem[]): TodoItem[] {
+    return [...list].sort((a, b) => (
+      Number(a.isDone) - Number(b.isDone)) || 
+      (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()) || 
+      (a.id - b.id) ); 
+  }
+
   trackById = (_: number, t: TodoItem) => t.id;
-}
+     
+  }
+
+  
+
+  

@@ -27,7 +27,7 @@ public class TodoController(ITodoRepository repo) : ControllerBase
     {
         if (string.IsNullOrWhiteSpace(dto?.Title))
             return BadRequest("Title is required");
-        
+
         var item = repo.Add(dto.Title.Trim());
         var result = new TodoItemDto
         {
@@ -45,4 +45,12 @@ public class TodoController(ITodoRepository repo) : ControllerBase
         var result = repo.Delete(id);
         return result ? NoContent() : NotFound();
     }
+
+    [HttpPatch("{id:int}")]
+    public ActionResult SetDone(int id, [FromBody] TodoUpdateStatusDto dto)
+    {
+        var result = repo.SetDone(id, dto.IsDone);
+        return result ? NoContent() : NotFound();
+    }
+
 }

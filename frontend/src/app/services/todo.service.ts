@@ -23,4 +23,10 @@ export class TodoService {
     delete(id: number): Observable<void> {
         return this.http.delete<void>(`${this.baseUrl}/${id}`);
     }
+
+    setDone(id: number, isDone: boolean) {
+        return this.http.patch<void>(`${this.baseUrl}/${id}`, { isDone });
+    }
+      
+      
 }

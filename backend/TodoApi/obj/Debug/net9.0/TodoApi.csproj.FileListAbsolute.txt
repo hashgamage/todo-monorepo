@@ -33,3 +33,4 @@
 /Users/gaya/Documents/Global360-TODO/backend/TodoApi/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/gaya/Documents/Global360-TODO/backend/TodoApi/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/gaya/Documents/Global360-TODO/backend/TodoApi/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/gaya/Documents/Global360-TODO/backend/TodoApi/obj/Debug/net9.0/TodoApi.sourcelink.json

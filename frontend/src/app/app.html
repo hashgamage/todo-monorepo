@@ -10,10 +10,14 @@
   <div *ngIf="loading()" class="loading">Loading...</div>
   
   <ul *ngIf="!loading() && items() as items" class="todo-list">
-    <li *ngFor="let item of items; trackBy:trackById">
-      <span class="title">{{item.title}}</span>
-      <button class="delete" (click)="deleteItem(item.id)">Delete</button>
+    <li *ngFor="let t of items; trackBy: trackById" [class.completed]="t.isDone">
+      <label class="toggle">
+        <input type="checkbox" class="round"[checked]="t.isDone" (change)="toggleDone(t)" />
+      </label>
+      <span class="title">{{t.title}}</span>
+      <button class="delete" (click)="deleteItem(t.id)">Delete</button>
     </li>
+
     <li *ngIf="items.length === 0" class="empty">No Todo items</li>
   </ul>
 
