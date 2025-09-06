@@ -58,7 +58,13 @@ Run frontend tests:
 ```bash
 cd frontend
 npm test
+ng test --code-coverage
 ```
+frontend test coverage result:
+<img width="1193" height="366" alt="Screenshot 2025-09-07 at 9 27 38 AM" src="https://github.com/user-attachments/assets/868f8940-7801-41a4-b3f9-b3e196b61a93" />
+
+<img width="1129" height="413" alt="image" src="https://github.com/user-attachments/assets/00e7fac6-4de2-442f-a6d5-d908f6f451a0" />
+
 
 ## Project Structure
 
