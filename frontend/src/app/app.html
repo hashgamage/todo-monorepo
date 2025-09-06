@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Todo List</h1>
+  <form class="add-form" (ngSubmit)="addItem();">
+    <input type="text" [formControl]="titleCtrl" placeholder="Add a new todo"  aria-label="Add a new todo" />
+
+    <button type="submit" [disabled]="titleCtrl.invalid||loading()">Add</button>
+  </form>
+
+  <div *ngIf="error()" class="error">{{error()}}</div>
+  <div *ngIf="loading()" class="loading">Loading...</div>
+  
+  <ul *ngIf="!loading() && items() as items" class="todo-list">
+    <li *ngFor="let item of items; trackBy:trackById">
+      <span class="title">{{item.title}}</span>
+      <button class="delete" (click)="deleteItem(item.id)">Delete</button>
+    </li>
+    <li *ngIf="items.length === 0" class="empty">No Todo items</li>
+  </ul>
+
+  </div>
