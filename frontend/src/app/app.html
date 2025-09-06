@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Todo List</h1>
   <form class="add-form" (ngSubmit)="addItem();">
-    <input type="text" [formControl]="titleCtrl" placeholder="Add a new todo"  aria-label="Add a new todo" />
+    <input type="text" [formControl]="titleCtrl" placeholder="Add a new item"  aria-label="Add a new item" />
 
     <button type="submit" [disabled]="titleCtrl.invalid||loading()">Add</button>
   </form>
